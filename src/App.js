@@ -49,16 +49,24 @@ class App extends React.Component{
 
 	render(){
 		return(
-			<div>
-				<Titles />
-				<Form getWeatherDetails={this.getWeatherFromOWM}/>
-				<Weather 
-					temperature={this.state.temperature}
-					city={this.state.city}
-					country = {this.state.country}
-					humidity = {this.state.humidity}
-					description = {this.state.humidity}
-					error = {this.state.error}/>
+			<div className="container">
+				<div className="row">
+					<div className="col-md-4 col-md-offset-4 titles">
+						<Titles />
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-md-5 col-md-offset-3">
+						<Form getWeatherDetails={this.getWeatherFromOWM}/>
+						<Weather 
+							temperature={this.state.temperature}
+							city={this.state.city}
+							country = {this.state.country}
+							humidity = {this.state.humidity}
+							description = {this.state.humidity}
+							error = {this.state.error}/>
+					</div>
+				</div>
 			</div>
 		);
 	}
