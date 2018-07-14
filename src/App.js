@@ -8,6 +8,14 @@ const API_KEY = "uSeyOurOwnapIkey";
 const BASE_URL = "http://api.openweathermap.org/data/2.5/weather";
 
 class App extends React.Component{
+	state = {
+		temperature : undefined,
+		city : undefined,
+		country : undefined,
+		humidity : undefined,
+		description : undefined,
+		error : undefined
+	}
 
 	getWeatherFromOWM = async (e) => {
 		e.preventDefault();
@@ -21,6 +29,15 @@ class App extends React.Component{
 		const data = await response.json();
 
 		console.log(data);
+
+		this.setState({
+			temperature : data.main.temp,
+			city : data.name,
+			country : data.sys.country,
+			humidity : data.main.humidity,
+			description : data.weather[0].description,
+			error : "", 
+		});
 	}
 
 	render(){
@@ -28,7 +45,13 @@ class App extends React.Component{
 			<div>
 				<Titles />
 				<Form getWeatherDetails={this.getWeatherFromOWM}/>
-				<Weather />
+				<Weather 
+					temperature={this.state.temperature}
+					city={this.state.city}
+					country = {this.state.country}
+					humidity = {this.state.humidity}
+					description = {this.state.humidity}
+					error = {this.state.error}/>
 			</div>
 		);
 	}
