@@ -28,16 +28,23 @@ class App extends React.Component{
 		const response = await fetch(BASE_URL+extendedUrl);
 		const data = await response.json();
 
-		console.log(data);
-
-		this.setState({
+		if(city && country)
+		{
+			this.setState({
 			temperature : data.main.temp,
 			city : data.name,
 			country : data.sys.country,
 			humidity : data.main.humidity,
 			description : data.weather[0].description,
 			error : "", 
-		});
+			});
+		}
+		else
+		{
+			this.setState({
+			error : "Please fill out the values", 
+			});	
+		}
 	}
 
 	render(){
