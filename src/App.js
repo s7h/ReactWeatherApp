@@ -27,7 +27,6 @@ class App extends React.Component{
 
 		const response = await fetch(BASE_URL+extendedUrl);
 		const data = await response.json();
-
 		if(city && country)
 		{
 			this.setState({
@@ -57,14 +56,16 @@ class App extends React.Component{
 				</div>
 				<div className="row">
 					<div className="col-md-5 col-md-offset-3">
-						<Form getWeatherDetails={this.getWeatherFromOWM}/>
-						<Weather 
-							temperature={this.state.temperature}
-							city={this.state.city}
-							country = {this.state.country}
-							humidity = {this.state.humidity}
-							description = {this.state.humidity}
-							error = {this.state.error}/>
+						<div className="wrap">
+							<Form getWeatherDetails={this.getWeatherFromOWM}/>
+							<Weather 
+								temperature={this.state.temperature}
+								city={this.state.city}
+								country = {this.state.country}
+								humidity = {this.state.humidity}
+								description = {this.state.description}
+								error = {this.state.error}/>
+						</div>
 					</div>
 				</div>
 			</div>

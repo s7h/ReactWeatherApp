@@ -1,11 +1,11 @@
 import React from "react";
 
 const Weather = props => (
-	<div className="cls-Weather">
-		{  props.city &&  props.country && <p><h1>Location: { props.city}, { props.country}</h1></p> }
-		{  props.temperature && <p><h1>Temperature: { props.temperature}</h1></p> }
-		{  props.humidity && <p><h1>Humidity: { props.humidity}</h1></p> }
-		{  props.description && <p><h1>Condition: { props.description}</h1></p> }
+	<div className="weather">
+		{  props.city &&  props.country && <h3>Location: { props.city}, { props.country}</h3>}
+		{  props.temperature && <h3>Temperature: { props.temperature}</h3> }
+		{  props.humidity && <h3>Humidity: { props.humidity}</h3> }
+		{  props.description && <h3>Condition: { props.description}</h3> }
 		{  props.error && <p>{ props.error}</p> }
 	</div>
 	);
